@@ -27,11 +27,13 @@ var polyLineColor = '#FFCC00'
 
 
 
-
 function initialize() {
 
 	var config = {
 		zoom : mapZoom,
+    	mapTypeControl: false,
+  		streetViewControl: false,
+  		disableDoubleClickZoom: true,
 		center : new google.maps.LatLng(mapCenter[0], mapCenter[1])
 	};
 	var googleMap = new google.maps.Map(document.getElementById("map_canvas"), config);
@@ -54,10 +56,10 @@ function initialize() {
 	
 	var address = '';
 	if (place.address_components) {
-	  place.address = [
-		(place.address_components[1] && place.address_components[1].long_name || ''),
-		(place.address_components[2] && place.address_components[2].long_name || '')
-	  ].join(' ');
+		place.address = [
+			(place.address_components[1] && place.address_components[1].long_name || ''),
+			(place.address_components[2] && place.address_components[2].long_name || '')
+		].join(' ');
 	}
 	var loc = place.geometry.location;
 	
