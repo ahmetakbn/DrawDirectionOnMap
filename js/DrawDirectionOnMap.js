@@ -31,9 +31,6 @@ function initialize() {
 
 	var config = {
 		zoom : mapZoom,
-    	mapTypeControl: false,
-  		streetViewControl: false,
-  		disableDoubleClickZoom: true,
 		center : new google.maps.LatLng(mapCenter[0], mapCenter[1])
 	};
 	var googleMap = new google.maps.Map(document.getElementById("map_canvas"), config);
@@ -64,7 +61,7 @@ function initialize() {
 	var loc = place.geometry.location;
 	
 	if(locations.length>0){
-		locations.push([place.name, loc.k, loc.D, place.address]);	
+		locations.push([place.name, loc.A, loc.F, place.address]);	
 		console.log(locations);
 		makeMap(googleMap,place);
 	}else{
@@ -87,7 +84,7 @@ function initialize() {
 			marker.setMap(googleMap);
 			marker.setVisible(true);
 			
-			locations.push([place.name, loc.k, loc.D, address]);
+			locations.push([place.name, loc.A, loc.F, address]);
 		}
 			
 	});
