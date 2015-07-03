@@ -31,6 +31,9 @@ function initialize() {
 
 	var config = {
 		zoom : mapZoom,
+    	mapTypeControl: false,
+  		streetViewControl: false,
+  		disableDoubleClickZoom: true,
 		center : new google.maps.LatLng(mapCenter[0], mapCenter[1])
 	};
 	var googleMap = new google.maps.Map(document.getElementById("map_canvas"), config);
