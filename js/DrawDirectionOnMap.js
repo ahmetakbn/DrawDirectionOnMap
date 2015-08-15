@@ -23,7 +23,7 @@ var markerColor = 'default';
 /**
  * Line Color
  */
-var polyLineColor = '#FFCC00'
+var polyLineColor = '#E82087'
 
 
 
@@ -55,16 +55,13 @@ function initialize() {
 	}
 	
 	var address = '';
-	if (place.address_components) {
-		place.address = [
-			(place.address_components[1] && place.address_components[1].long_name || ''),
-			(place.address_components[2] && place.address_components[2].long_name || '')
-		].join(' ');
+	if (place.formatted_address) {
+		address = place.formatted_address;
 	}
 	var loc = place.geometry.location;
 	
 	if(locations.length>0){
-		locations.push([place.name, loc.A, loc.F, place.address]);	
+		locations.push([place.name, loc.G, loc.K, place.address]);	
 		console.log(locations);
 		makeMap(googleMap,place);
 	}else{
@@ -87,7 +84,7 @@ function initialize() {
 			marker.setMap(googleMap);
 			marker.setVisible(true);
 			
-			locations.push([place.name, loc.A, loc.F, address]);
+			locations.push([place.name, loc.G, loc.K, address]);
 		}
 			
 	});
